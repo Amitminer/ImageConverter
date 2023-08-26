@@ -1,19 +1,24 @@
 <?php
+
+namespace AmitxD\ImageConverter;
+
 /**
- * Class ImageConverter
- */
+* Class ImageConverter
+*/
 class ImageConverter {
     /**
-     * @var array Allowed image formats
-     */
-    private $allowedFormats = ['png', 'jpg', 'jpeg'];
+    * @var array Allowed image formats
+    */
+    private $allowedFormats = ['png',
+        'jpg',
+        'jpeg'];
 
     /**
-     * Convert an image to binary data.
-     *
-     * @param string $imagePath Path to the image file.
-     * @return string Binary image data or error message.
-     */
+    * Convert an image to binary data.
+    *
+    * @param string $imagePath Path to the image file.
+    * @return string Binary image data or error message.
+    */
     public function imageToBinary($imagePath): ?string {
         $extension = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
 
@@ -23,17 +28,19 @@ class ImageConverter {
 
         $imageBinary = file_get_contents($imagePath);
 
-        return $imageBinary;
+        return base64_encode($imageBinary);
     }
 
     /**
-     * Save binary data as an image file.
-     *
-     * @param string $binaryData Binary image data.
-     * @param string $outputPath Path to save the image file.
-     * @return string Success message or error message.
-     */
-    public function saveBinaryAsImage($binaryData, $outputPath): string {
+    * Save binary data as an image file.
+    *
+    * @param string $imageData Base64-encoded image data.
+    * @param string $outputPath Path to save the image file.
+    * @return string Success message or error message.
+    */
+    public function saveBinaryAsImage($imageData, $outputPath): string {
+        $binaryData = base64_decode($imageData);
+
         if (file_put_contents($outputPath, $binaryData) === false) {
             return "Failed to save the image.";
         }

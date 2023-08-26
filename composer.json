@@ -1,18 +1,29 @@
 {
     "name": "amitxd/imageconverter",
-    "description": "convert image to binary..(also available binary to image",
+    "description": "Convert images to binary and vice versa.",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "phpstan/phpstan": "^1.10.29",
+        "phpstan/phpstan-strict-rules": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AmitxD\\ImageConverter\\": "src/"
+        }
+    },
     "scripts": {
         "analyze": "vendor/bin/phpstan analyze src"
     },
-    "require": {
-        "phpstan/phpstan": "^1.10.29",
-        "phpstan/phpstan-strict-rules": "^1.0",
-        "phpstan/extension-installer": "^1.0"
-    },
-    "license": "MIT Licence",
+    "license": "MIT",
     "config": {
         "allow-plugins": {
             "phpstan/extension-installer": true
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "AmitxD"
+        }
+    ]
 }

@@ -1,93 +1,82 @@
-# ImageConverter
+# ImageConverter 
 
-A simple PHP-based command-line tool for converting images to binary data and vice versa.
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Usage](#usage)
-- [Installation](#installation)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-The ImageConverter tool allows you to convert image files to binary data and recover images from binary data. It provides a command-line interface for easy conversion.
-
-## Features
-
-- Convert an image file to binary data.
-- Recover an image from binary data.
-- Supports popular image formats (PNG, JPG, JPEG).
-- Simple and easy-to-use command-line interface.
-
-## Usage
+The ImageConverter tool provides a command-line interface (CLI) for converting images to binary data and vice versa. Below, you'll find detailed information on how to use the CLI tool.
 
 ### Prerequisites
 
-- PHP installed on your system.
-- Command-line access.
+- **PHP**: Ensure that PHP is installed on your system.
+- **Command-Line Access**: You should have access to a command-line interface (e.g., Terminal, Command Prompt).
+
+### Installation
+
+To use the ImageConverter tool, you can install it via Composer by running the following command in your project's root directory:
+
+```sh
+composer require amitxd/imageconverter
+```
+
+This command downloads the ImageConverter package and its dependencies, making it available for use in your project. After installation, you can use the CLI tool as described below.
 
 ### Convert an Image to Binary
 
 To convert an image to binary data, use the following command:
 
 ```sh
-php ImageConverter.php -c <image_path>
+php vendor/bin/ImageConverter.php -c <image_path>
 ```
 
-Example:
+Replace `<image_path>` with the path to the image you want to convert. For example:
 
 ```sh
-php ImageConverter.php -c myimage.jpg
+php vendor/bin/ImageConverter.php -c myimage.jpg
 ```
 
-The binary data will be saved as "myimage.bin" in the same directory.
+The binary data will be saved as "myimage.bin" in the same directory where the CLI command was executed.
 
 ### Recover an Image from Binary
 
 To recover an image from binary data, use the following command:
 
 ```sh
-php ImageConverter.php -r <binary_path>
+php vendor/bin/ImageConverter.php -r <binary_path>
 ```
 
-Example:
+Replace `<binary_path>` with the path to the binary file you want to convert back to an image. For example:
 
 ```sh
-php ImageConverter.php -r myimage.bin
+php vendor/bin/ImageConverter.php -r myimage.bin
 ```
 
-The image will be saved as "myimage.jpg" in the same directory.
+The recovered image will be saved as "myimage.jpg" in the same directory where the CLI command was executed.
 
-## Installation
+## Example Usage
 
-1. Clone this repository to your local machine:
+Here are some example usages of the ImageConverter CLI tool:
+
+- **Convert an image to binary**:
+
+  ```sh
+  php vendor/bin/ImageConverter.php -c image.jpg
+  ```
+
+  This command will convert "image.jpg" to binary data and save it as "image.bin."
+
+- **Recover an image from binary**:
+
+  ```sh
+  php vendor/bin/ImageConverter.php -r image.bin
+  ```
+
+  This command will recover an image from "image.bin" and save it as "image.jpg."
+
+## Command-Line Help
+
+You can display a help message and list of available commands by running the ImageConverter tool without any arguments:
 
 ```sh
-git clone https://github.com/Amitminer/ImageConverter.git
+php vendor/bin/ImageConverter.php
 ```
 
-2. Change directory to the project folder:
+This will show you the available options and usage instructions.
 
-```sh
-cd ImageConverter
-```
-
-3. Run the ImageConverter using PHP as described in the [Usage](#usage) section.
-
-## API Documentation
-
-The ImageConverter tool does not have a traditional API but can be accessed via the command-line interface. Please refer to the [Usage](#usage) section for details on how to use it.
-
-## Contributing
-
-Contributions are welcome! If you have ideas for improvements or new features, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
+Please note that the CLI usage examples assume that Composer's vendor binaries directory is in your system's PATH. If it's not, you may need to adjust the path to the ImageConverter CLI script accordingly.
