@@ -17,7 +17,7 @@ class ImageConverter {
     public function imageToBinary($imagePath): ?string {
         $extension = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
 
-        if (!in_array($extension, $this->allowedFormats)) {
+        if (!in_array($extension, $this->allowedFormats, false)) {
             return "Unsupported image format.";
         }
 
