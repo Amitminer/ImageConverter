@@ -1,0 +1,18 @@
+{
+    "name": "amitxd/imageconverter",
+    "description": "convert image to binary..(also available binary to image",
+    "scripts": {
+        "analyze": "vendor/bin/phpstan analyze src"
+    },
+    "require": {
+        "phpstan/phpstan": "^1.10.29",
+        "phpstan/phpstan-strict-rules": "^1.0",
+        "phpstan/extension-installer": "^1.0"
+    },
+    "license": "MIT Licence",
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}
